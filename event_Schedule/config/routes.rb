@@ -12,11 +12,15 @@ Rails.application.routes.draw do
 
   get 'start_page' => 'users#new',as: :user_new
 
-   get 'login' => 'sessions#new', as: :login_new
+  get 'login' => 'sessions#new', as: :login_new
 
-   post 'login/create' => 'sessions#create', as: :session_create
+  post 'login/create' => 'sessions#create', as: :session_create
 
-   get 'event/new' => 'events/new',as: :event_new
+  get 'event/new' => 'events#new',as: :event_new
+
+  post 'event/create' => 'events#create',as: :event_create
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
