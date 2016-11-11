@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_title: MyString
+  venue: MyString
+  date: 2016-11-11 14:13:06
+  time: MyString
+  description: 
+  status: MyString
+
+two:
+  event_title: MyString
+  venue: MyString
+  date: 2016-11-11 14:13:06
+  time: MyString
+  description: 
+  status: MyString
