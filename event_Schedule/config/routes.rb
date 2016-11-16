@@ -6,19 +6,38 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'users#start_page'
 
+
+  
+
   get 'sign_up' => 'users#new', as: :sign_up
+
+  get 'log_out' => 'sessions#destroy', as: :log_out
 
   post 'user/create' => 'users#create', as: :user_create
 
   get 'start_page' => 'users#new',as: :user_new
 
+
+
+
+
   get 'login' => 'sessions#new', as: :login_new
 
   post 'login/create' => 'sessions#create', as: :session_create
 
-  get 'event/new' => 'events#new',as: :event_new
 
-  post 'event/create' => 'events#create',as: :event_create
+
+
+
+  get 'event/:user_id/new' => 'events#new',as: :event_new
+
+  post 'event/:user_id/create' => 'events#create',as: :event_create
+
+  get 'event/:user_id/list' => 'events#index',as: :event_list
+
+  get 'event/:id/edit' => 'events#edit',as: :event_edit
+
+  put 'event/:id/edit' => 'events#update', as: :event_update
 
 
 

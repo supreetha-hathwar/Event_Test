@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :invitations,foreign_key: :invitee_id
+  has_many :events,through: :invitations
+
+
   attr_accessor :password
   before_save :encrypt_password
   

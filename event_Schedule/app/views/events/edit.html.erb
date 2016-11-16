@@ -1,0 +1,103 @@
+ <%if current_user.id == @event.owner_id%>
+
+<%= form_for @event,url: event_update_path(@event), method: :put do |f| %>
+  
+   <p>
+    <%= f.label :Event %><br />
+    <%= f.text_field :event_title %>
+  </p>
+   <p>
+    <%= f.label :Venue %><br />
+    <%= f.text_field :venue %>
+  </p>
+   <p>
+    <%= f.label :Date%><br />
+    <%= f.text_field :date %>
+  </p>
+   <p>
+    <%= f.label :Time%><br />
+    <%= f.text_field :time %>
+  </p>
+  
+  
+
+
+
+   <%= f.label :Invitees %>
+ <ul>
+   <% @users.each do |role| %>
+     <li>
+       <%= check_box_tag 'invitee_ids[]', role.id -%>
+       <%= role.username -%>
+     </li>
+   <% end %>
+ </ul>
+   <p>
+    <%= f.label :Description %><br />
+    <%= f.text_area :description %>
+  </p>
+
+
+   <p>
+    <%= f.label :Status %><br />
+    <%= f.select :status, ['open', 'closed']%></br></br></br>
+  </p>
+  
+   
+  <p class="button"><%= f.submit :OK %></p>
+  <p class="button"><%= f.submit :Cancel %></p>
+  
+  <% end %>
+  <%else%>
+  <%= form_for @event,url: event_update_path(@event), method: :put do |f| %>
+  
+   <p>
+    <%= f.label :Event %><br />
+    <%= f.text_field :event_title,:disabled => true %>
+  </p>
+   <p>
+    <%= f.label :Venue %><br />
+    <%= f.text_field :venue,:disabled => true %>
+  </p>
+   <p>
+    <%= f.label :Date%><br />
+    <%= f.text_field :date %>
+  </p>
+   <p>
+    <%= f.label :Time%><br />
+    <%= f.text_field :time %>
+  </p>
+ 
+
+   <%= f.label :Invitees %>
+ <ul>
+   <% @users.each do |role| %>
+     <li>
+       <%= check_box_tag 'invitee_ids[]', role.id -%>
+       <%= role.username -%>
+     </li>
+   <% end %>
+ </ul>
+   <p>
+    <%= f.label :Description %><br />
+    <%= f.text_area :description,:disabled => true %>
+  </p>
+
+
+   <p>
+    <%= f.label :Status %><br />
+    <%= f.select :status, ['open', 'closed']%></br></br></br>
+  </p>
+  
+   
+  <p class="button"><%= f.submit :OK %></p>
+  <p class="button"><%= f.submit :Cancel %></p>
+  
+  <% end %>
+  <%end%>
+
+ 
+
+ 
+
+

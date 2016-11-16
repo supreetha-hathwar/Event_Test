@@ -22,10 +22,10 @@ $("#foo").validate({rules: {
 "user[lastname]": {required: true, lastname: true},
 "user[username]": {required: true, username: true},
 "user[email]": {required: true, email: true},
-"user[phonenumber]": {required: true, phonenumber: true},
+"user[phonenumber]": {required: true, phonenumber: true,maxlength: 10},
 "user[password]": {required: true, minlength: 6},
 "user[password_confirmation]": {required: true, equalTo: "#customer_password"}
-// submitHandler: function(form) { form.submit();}
+
 }
 });
 });
